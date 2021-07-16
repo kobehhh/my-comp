@@ -1,6 +1,6 @@
 {
   "name": "my-comp",
-  "version": "0.1.8",
+  "version": "0.1.6",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
@@ -13,7 +13,7 @@
   },
   "scripts": {
     "check-types": "tsc --noEmit",
-    "release": "standard-version",
+    "release": "standard-version --preset gitmoji-config",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -55,14 +55,9 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run check-types && lint-staged"
+      "pre-commit": "npm run check-types",
+      "pre-push": "npm run release"
     }
-  },
-  "lint-staged": {
-    "*.{ts,tsx,js,jsx}": [
-      "npm run lint:script",
-      "prettier .prettierrc.js --write"
-    ]
   },
   "config": {
     "commitizen": {
