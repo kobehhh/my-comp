@@ -1,6 +1,6 @@
 {
   "name": "my-comp",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
@@ -55,7 +55,6 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run check-types",
       "pre-push": "npm run release"
     }
   },
