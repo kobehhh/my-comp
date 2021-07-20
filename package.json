@@ -1,6 +1,6 @@
 {
   "name": "my-comp",
-  "version": "0.1.11",
+  "version": "0.1.10",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
@@ -12,9 +12,10 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
+    "site": "cross-env ENV=production bisheng build -c ./site/bisheng.config.js",
+    "start": "rimraf _site && mkdir _site && cross-env NODE_ENV=development bisheng start -c ./site/bisheng.config.js",
     "check-types": "tsc --noEmit",
     "release": "standard-version",
-    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -45,7 +46,11 @@
     "@commitlint/config-conventional": "^12.1.4",
     "@typescript-eslint/eslint-plugin": "^4.28.3",
     "@typescript-eslint/parser": "^4.28.3",
+    "bisheng": "^1.5.3",
+    "bisheng-plugin-description": "^0.1.4",
+    "bisheng-plugin-toc": "^0.4.4",
     "conventional-changelog-gitmoji-config": "^1.4.3",
+    "cross-env": "^7.0.2",
     "cz-customizable": "^6.3.0",
     "eslint": "^7.30.0",
     "husky": "^4.2.5",
@@ -55,7 +60,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "npm run release"
+      "pre-commit": "npm run check-types"
     }
   },
   "config": {
